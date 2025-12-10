@@ -10,7 +10,7 @@ public class CepConsumer {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
-    @KafkaListener(topics = "cep-resposta", groupId = "cep-group")
+    @KafkaListener(topics = "cep-resposta")
     public void consumirResposta(String mensagemJson) {
         try {
             CepResultDTO dto = mapper.readValue(mensagemJson, CepResultDTO.class);
@@ -20,4 +20,7 @@ public class CepConsumer {
             e.printStackTrace();
         }
     }
+
+
+
 }
